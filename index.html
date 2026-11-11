@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="dv" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" sizes="any">
+<title>ދިރުން | Dhirun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Thaana:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* Custom Dhivehi fonts: files sit in the same folder as index.html.
+   If you move them into a subfolder, change the url() paths (e.g. "fonts/MV_Waheed.otf"). */
+@font-face{font-family:"MV Waheed";src:url("MV_Waheed.otf") format("opentype");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Faruma";src:url("Faruma.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+:root{
+  --bg:#fff; --ink:#15171c; --muted:#5e6470; --line:#e4e6ea; --pill:#f1f2f5;
+  --red:#d3202f; --dark:#12141a;
+  --font-head:"MV Waheed","Faruma","Noto Sans Thaana",system-ui,sans-serif; /* headings only */
+  --font-body:"Faruma","Noto Sans Thaana","MV Boli",system-ui,sans-serif;   /* everything else */
+  --font:var(--font-body);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1115;--ink:#eceef2;--muted:#9aa1ad;--line:#262a33;--pill:#1b1e26;--red:#ff5060;--dark:#eceef2}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover;background:var(--pill)}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.bar{display:flex;align-items:center;gap:28px;height:72px}
+.logo{font-size:34px;font-weight:800;color:var(--red);line-height:1;letter-spacing:0}
+nav{display:flex;gap:26px;flex:1;overflow-x:auto;scrollbar-width:none}
+nav a{font-weight:600;font-size:16px;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{border-color:var(--red)}
+.tools{display:flex;align-items:center;gap:10px}
+.btn{font:600 14px/1 system-ui,sans-serif;padding:11px 20px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.btn.dark{background:var(--dark);color:var(--bg);border-color:var(--dark)}
+.icon{width:40px;height:40px;border:0;background:none;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+
+/* meta */
+.meta{display:flex;align-items:center;gap:10px;font:12.5px/1 system-ui,sans-serif;color:var(--muted)}
+.meta span{display:inline-flex;align-items:center;gap:5px;direction:ltr}
+.meta .c{border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--pill)}
+.meta svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.6}
+.cat{color:var(--red);font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:3px 16px;font-size:14px;font-weight:600}
+
+/* front page */
+.front{display:grid;grid-template-columns:300px 1fr 280px;gap:0;padding:36px 0 40px}
+.front>*{padding:0 22px}
+.front>*+*{border-inline-start:1px solid var(--line)}
+.front>:first-child{padding-inline-start:0}.front>:last-child{padding-inline-end:0}
+.side-card{padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.side-card .ph{aspect-ratio:4/3;margin-bottom:14px}
+.side-card h3{font-size:19px;line-height:2;font-weight:800;margin-bottom:4px}
+.side-card p{font-size:14px;color:var(--muted);line-height:2;margin-bottom:10px}
+.hero .ph{aspect-ratio:16/9.6;margin-bottom:22px}
+.hero .pill{margin-bottom:16px}
+.hero h1{font-size:34px;line-height:1.9;font-weight:800;margin-bottom:12px}
+.hero p{color:var(--muted);font-size:16px;margin-bottom:18px}
+.byline{display:flex;align-items:center;gap:12px}
+.av{width:28px;height:28px;border-radius:50%;overflow:hidden;flex:none}
+.ad{margin-bottom:26px}
+.ad small{display:block;text-align:center;font:11px system-ui,sans-serif;color:var(--muted);margin-bottom:4px}
+.ad .box{aspect-ratio:1/1.5;background:linear-gradient(180deg,#f8f9fb 0 46%,#c8174f 46% 82%,#e7a321 82% 88%,#1d4f9b 88%);display:grid;place-items:center;color:#fff;font:600 13px system-ui,sans-serif;text-align:center;padding:12px}
+.ad .box b{color:#1d4f9b;font-size:22px;background:#fff;padding:0 8px;border-radius:4px}
+.mini{display:grid;grid-template-columns:1fr 100px;gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line)}
+.mini .ph{aspect-ratio:1;order:2;width:100px}
+.mini h4{font-size:15.5px;line-height:2;font-weight:800;margin-bottom:6px}
+
+/* sections */
+.sec-title{text-align:center;font-size:30px;font-weight:800;padding:34px 0 22px;border-bottom:1px solid var(--line)}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
+.feature .ph{aspect-ratio:4/3}
+.feature h2{font-size:30px;line-height:1.95;font-weight:800;margin:10px 0}
+.feature p{color:var(--muted);margin-bottom:22px}
+.row4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:26px 0}
+.row4 article{padding:0 18px}
+.row4 article+article{border-inline-start:1px solid var(--line)}
+.row4 article:first-child{padding-inline-start:0}.row4 article:last-child{padding-inline-end:0}
+.row4 .ph{aspect-ratio:4/3;margin-bottom:14px}
+.row4 h3{font-size:17px;line-height:2;font-weight:800}
+
+/* tabs */
+.tabs{display:flex;justify-content:center;gap:8px;padding:34px 0 24px}
+.tab{font-size:15px;font-weight:600;padding:8px 22px;border-radius:999px;border:0;background:none;color:var(--ink);cursor:pointer}
+.tab[aria-selected=true]{background:var(--dark);color:var(--bg)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:20px 22px;border-bottom:1px solid var(--line)}
+.item:not(:nth-child(3n)){border-inline-end:1px solid var(--line)}
+.item .ph{aspect-ratio:4/3}
+.item h4{font-size:15.5px;line-height:2;font-weight:800;margin:2px 0 8px}
+
+footer{margin-top:50px;background:var(--dark);color:var(--bg);padding:40px 0 30px}
+footer .in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+footer .logo{color:#ff5060}
+footer p{font:13px system-ui,sans-serif;opacity:.7}
+footer .links{display:flex;gap:22px;font-size:15px}
+
+@media(max-width:1024px){
+  .front{grid-template-columns:1fr 1fr}
+  .front .hero{grid-column:1/-1;order:-1;padding:0 0 28px;border:0}
+  .front>*{padding:0 18px}
+  .grid3{grid-template-columns:1fr 1fr}
+  .item:not(:nth-child(3n)){border-inline-end:0}.item:nth-child(odd){border-inline-end:1px solid var(--line)}
+  .row4{grid-template-columns:1fr 1fr;gap:24px 0}
+}
+@media(max-width:680px){
+  .bar{gap:12px;height:64px}.btn{display:none}
+  .front{display:block;padding-top:20px}.front>*{padding:0;border:0!important}
+  .hero h1{font-size:24px}
+  .feature{grid-template-columns:1fr;gap:16px}.feature h2{font-size:23px}
+  .row4,.grid3{grid-template-columns:1fr}.row4 article{padding:0!important;border:0!important}
+  .item{border-inline-end:0!important;padding:16px 0;grid-template-columns:120px 1fr}
+}
+
+.who{font-size:13px;color:var(--muted)}
+.btn.lang{font-size:14px;font-weight:600;line-height:1.2;padding:9px 16px}
+html[lang=en]{--font-head:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--font-body:var(--font-head);--font:var(--font-head)}
+html[lang=en] body{line-height:1.6}
+html[lang=en] nav a{font-size:15px}
+html[lang=en] .hero h1{font-size:36px;line-height:1.25;letter-spacing:-.01em}
+html[lang=en] .hero p{line-height:1.6}
+html[lang=en] .side-card h3{font-size:19px;line-height:1.35}
+html[lang=en] .side-card p{line-height:1.55}
+html[lang=en] .mini h4,html[lang=en] .item h4{line-height:1.4}
+html[lang=en] .feature h2{font-size:32px;line-height:1.25}
+html[lang=en] .row4 h3{line-height:1.4}
+html[lang=en] .sec-title{font-size:28px;line-height:1.3}
+html[lang=en] .cat{font-size:13.5px}
+@media(max-width:680px){html[lang=en] .hero h1{font-size:25px}html[lang=en] .feature h2{font-size:24px}}
+
+body{font-family:var(--font-body);font-synthesis:none}
+.sec-title,.hero h1,.feature h2,.side-card h3,.row4 h3,.mini h4,.item h4{font-family:var(--font-head)}
+nav a,.cat,.pill,.tab,.btn,.btn.lang{font-family:var(--font-body)}
+html[lang=dv] .hero h1,html[lang=dv] .feature h2,html[lang=dv] .sec-title,html[lang=dv] .side-card h3,html[lang=dv] .row4 h3,html[lang=dv] .mini h4,html[lang=dv] .item h4{font-weight:400}
+.logo{display:inline-flex;align-items:center;gap:10px;flex:none;white-space:nowrap;line-height:1.2;direction:ltr}
+.logo .dv{font-family:var(--font-head);font-weight:400;font-size:36px;color:var(--red);line-height:1}
+.logo .sep{width:1px;height:26px;background:var(--line);overflow:hidden;color:transparent}
+.logo .en{font-family:"Inter",system-ui,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--ink)}
+footer .logo .en{color:var(--bg)}
+footer .logo .sep{background:rgba(255,255,255,.3)}
+@media(max-width:680px){.logo .dv{font-size:28px}.logo .en{font-size:17px}.logo{gap:8px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <!-- Text logo for now. Later, replace the contents of this link with your <img> logo. -->
+    <a class="logo" href="#" aria-label="ދިރުން Dhirun"><span class="dv">ދިރުން</span><span class="sep">|</span><span class="en">Dhirun</span></a>
+    <nav aria-label="Main" id="nav"></nav>
+    <div class="tools">
+      <button class="icon" id="searchBtn" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="btn lang" id="langBtn" aria-label="Language"></button>
+      <button class="btn" data-i="register"></button>
+      <button class="btn dark" data-i="login"></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="front" id="front"></section>
+
+  <h2 class="sec-title" data-i="latest"></h2>
+  <div id="feature"></div>
+  <div class="row4" id="row4"></div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-t="0" data-i="t0"></button>
+    <button class="tab" role="tab" aria-selected="false" data-t="1" data-i="t1"></button>
+    <button class="tab" role="tab" aria-selected="false" data-t="2" data-i="t2"></button>
+  </div>
+  <div class="grid3" id="grid"></div>
+</main>
+
+<footer>
+  <div class="wrap in">
+    <div><div class="logo"><span class="dv">ދިރުން</span><span class="sep">|</span><span class="en">Dhirun</span></div><p data-i="rights"></p></div>
+    <div class="links"><a href="#" data-i="about"></a><a href="#" data-i="contact"></a><a href="#" data-i="privacy"></a></div>
+  </div>
+</footer>
+
+<script>
+/* ---- Placeholder content. Replace images with your own (any URL or local path). ---- */
+const img=(s,w=800,h=600)=>`https://picsum.photos/seed/${s}/${w}/${h}`;
+
+/* ---- Languages: Dhivehi is the default; English is available from the header button ---- */
+const L={
+ dv:{lang:'dv',dir:'rtl',toggle:'English',title:'ދިރުން | Dhirun',hr:n=>n+' ގަޑިއިރު',
+  nav:['ފުރަތަމަ','ރާއްޖެ','ސިޔާސީ','ވިޔަފާރި','ކުޅިވަރު','ދުނިޔެ','ސިއްހަތު','މުނިފޫހިކަން'],
+  cat:{mv:'ރާއްޖެ',pol:'ސިޔާސީ',biz:'ވިޔަފާރި',sport:'ކުޅިވަރު',world:'ދުނިޔެ',health:'ސިއްހަތު',ent:'މުނިފޫހިކަން'},
+  s:{latest:'އެންމެ ފަހުގެ ޚަބަރު',t0:'އެންމެ ފަހުން',t1:'ގިނަ ބެލުނު',t2:'7 ދުވަސް',login:'ލޮގިން',register:'ރަޖިސްޓަރ',ad:'މިތަނަށް އިޢުލާނު',reporter:'ސްޓާފް ރިޕޯޓަރ',about:'އަޅުގަނޑުމެންނާ ބެހޭ',contact:'ގުޅާލާ',privacy:'ޕްރައިވެސީ',rights:'© 2026 ދިރުން. ހުރިހާ ޙައްޤުތަކެއް ރައްކާކުރެވިަަފައި.',search:'ހޯދާ'}},
+ en:{lang:'en',dir:'ltr',toggle:'ދިވެހި',title:'Dhirun | ދިރުން',hr:n=>n+(n===1?' hr':' hrs'),
+  nav:['Home','Maldives','Politics','Business','Sports','World','Health','Entertainment'],
+  cat:{mv:'Maldives',pol:'Politics',biz:'Business',sport:'Sports',world:'World',health:'Health',ent:'Entertainment'},
+  s:{latest:'Latest news',t0:'Latest',t1:'Most read',t2:'7 days',login:'Login',register:'Register',ad:'Your ad here',reporter:'Staff reporter',about:'About us',contact:'Contact',privacy:'Privacy',rights:'© 2026 Dhirun. All rights reserved.',search:'Search'}}
+};
+
+/* front page stories: c=category, t=[dv,en] headline, x=[dv,en] excerpt, n=comments, h=hours, s=image seed */
+const A=[
+ {c:'mv',s:'plane',n:5,h:3,t:['ސީޕްލޭނެއް އެއާޕޯޓް ޕްލެޓްފޯމް ކައިރީގައި ފެނުގައި ބޮޑުވެ ގެއްލުމެއް ލިބިއްޖެ','Seaplane damaged after tilting into the water beside the airport platform'],
+  x:['ރިޕޯޓުތަކުން ބުނާ ގޮތުގައި ސީޕްލޭނަށް ލިބުނު ގެއްލުމާ ބެހޭ ތަޙުޤީޤެއް ފެށިފައިވެއެވެ. ދަތުރުކުރާ މީހުންނަށް އުނދަގޫތަކެއް ނުދިން.','An investigation into the damage has begun. Authorities say no passengers were hurt and flights from the platform continue as normal.']},
+ {c:'sport',s:'football',n:2,h:2,t:['ފުޓްބޯޅަ ޓީމުން ގިނަ މަޝްހޫރު ކުޅުމެއްގައި މޮޅުވެ ކުރިއަށް ދިޔައީ','National football team wins a tense match to move forward'],
+  x:['މިއަދު ކުޅުނު މެޗުގައި ދެ ޓީމުން ގަދަކަމާއެކު ކުޅެ ވަރުގަދަ މެޗެއް ދައްކައިދިނެވެ.','Both sides played hard in today\u2019s match, which was decided by a single goal in the second half.']},
+ {c:'pol',s:'meeting',n:8,h:4,t:['ބައްދަލުވުމެއްގައި މުހިންމު ގަވާއިދުތަކާ ބެހޭ ގޮތުން ޕާލިމެންޓްގައި ވާހަކަދެއްކުނު','Parliament debates key regulations at committee meeting'],
+  x:['ކޮމިޓީގެ މެމްބަރުން މަޝްވަރާކޮށް ކޮށްފައިވާ ނިންމުންތަކަކީ އަންނަ ހަފްތާގައި ނެރޭނެ ކަމަށް ބުނެއެވެ.','Committee members said their decisions will be published next week.']},
+ {c:'mv',s:'building',n:9,h:9,t:['ސިޓީ ކައުންސިލުން ކުރިއަށް އޮތް ޕްރޮޖެކްޓްތަކުގެ ތަފްސީލު ހާމަކުރައްވައިފި','City council reveals details of upcoming projects']},
+ {c:'health',s:'hospital',n:0,h:9,t:['ސިއްހީ މަރުކަޒުތަކުގައި އިތުރު ތަކެތި ފޮނުވައިފި','Extra supplies sent to health centres across the islands']},
+ {c:'biz',s:'office',n:36,h:9,t:['ދިވެހި ވިޔަފާރިތަކުގެ ބޮޑު ބައެއް ކުރިއަށް ދާކަމަށް އެކުލަވާލެވުނު ރިޕޯޓެއް','Report finds most Maldivian businesses are growing']},
+ {c:'mv',s:'police',n:9,h:10,t:['ޕޮލިހުން 21 މީހަކު ހައްޔަރުކޮށް ތަޙުޤީޤުކުރަނީ','Police arrest 21 people and continue investigation']}
+];
+const F=[
+ {c:'mv',t:['ސަރުކާރީ އާ ސްކީމެއް ފަށައިގެން އަންނަނީ، ގިނަ ބަޔަކަށް ފައިދާ ލިބޭނެ','A new government scheme is about to start, set to benefit many people']},
+ {c:'pol',t:['ކުރީގެ ޤާނޫނުތަކަށް އިސްލާހުތަކެއް ގެނައުމަށް ހުށަހަޅައިފި','Amendments to existing laws submitted for review']},
+ {c:'sport',t:['ކުޅިވަރު ކައުންސިލުން އަލަށް ކުރިމަތިލާ ޓޫރްނަމަންޓެއް އިއުލާންކޮށްފި','Sports council announces a new tournament']},
+ {c:'biz',t:['ދަނޑުވެރިކަމުގެ ތަކެތީގެ އަގު ބަދަލުވަނީ ކިހިނެއްތޯ؟','How are farm produce prices changing?']},
+ {c:'health',t:['ރިސޯޓް ދާއިރާގައި ވަޒީފާގެ ފުރުސަތުތައް އިތުރުވަމުން އަންނަކަމަށް ބުނެއެވެ','Resort sector job openings are on the rise']}
+];
+const FEATURE_X=['މި ސްކީމުގެ ތެރެއިން ގިނަ ބަޔަކަށް ފައިދާ ލިބޭނެ ކަމަށް އަދި އަންނަ މަސްތަކުގައި ތަންފީޒުކުރުމަށް ހަމަޖެހިފައިވާ ކަމަށް ބުނެއެވެ.','Officials say the scheme will be rolled out over the coming months and is expected to reach thousands of households.'];
+const CATS=Object.keys(L.dv.cat);
+const TABS=[0,1,2].map(k=>Array.from({length:12},(_,i)=>({c:CATS[(i+k)%CATS.length],f:F[(i+k*2)%F.length],n:(i*7+k*11)%40,h:i+1+k*3,s:`t${k}-${i}`})));
+
+let lang='dv',tab=0;
+try{const v=localStorage.getItem('dhirun-lang');if(v&&L[v])lang=v}catch(e){}
+const $=id=>document.getElementById(id);
+
+const meta=(c,h)=>`<div class="meta"><span class="c"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/></svg>${c}</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${L[lang].hr(h)}</span></div>`;
+const i=lang=>lang==='dv'?0:1;
+
+function render(){
+  const D=L[lang],k=i(lang),root=document.documentElement;
+  root.lang=D.lang;root.dir=D.dir;document.title=D.title;
+  $('langBtn').textContent=D.toggle;
+  document.querySelectorAll('[data-i]').forEach(e=>e.textContent=D.s[e.dataset.i]);
+  $('searchBtn').setAttribute('aria-label',D.s.search);
+  $('nav').innerHTML=D.nav.map((n,j)=>`<a${j?'':' class="on"'} href="#">${n}</a>`).join('');
+
+  const side=a=>`<article class="side-card"><a href="#"><div class="ph"><img loading="lazy" src="${img(a.s,600,450)}" alt=""></div><h3>${a.t[k]}</h3>${a.x?`<p>${a.x[k].slice(0,90)}…</p>`:''}${meta(a.n,a.h)}</a></article>`;
+  const mini=a=>`<a class="mini" href="#"><div><h4>${a.t[k]}</h4>${meta(a.n,a.h)}</div><div class="ph"><img loading="lazy" src="${img(a.s,200,200)}" alt=""></div></a>`;
+  const h=A[0];
+  $('front').innerHTML=`
+  <div>${side(A[1])}${side(A[2])}</div>
+  <article class="hero"><a href="#"><div class="ph"><img src="${img(h.s,1100,660)}" alt=""></div></a>
+    <span class="pill">${D.dir==='rtl'?'‹':'›'} ${D.cat[h.c]}</span>
+    <a href="#"><h1>${h.t[k]}</h1><p>${h.x[k]}</p></a>
+    <div class="byline">${meta(h.n,h.h)}<span class="who">${D.s.reporter}</span><div class="av"><img src="${img('author1',60,60)}" alt=""></div></div>
+  </article>
+  <aside>
+    <div class="ad"><small>Advertisement</small><div class="box"><div><b>${D.s.ad}</b><br><br>300 × 450</div></div></div>
+    ${A.slice(3).map(mini).join('')}
+  </aside>`;
+
+  const f=F[0];
+  $('feature').innerHTML=`<article class="feature"><div><a class="cat" href="#">${D.cat[f.c]}</a><a href="#"><h2>${f.t[k]}</h2><p>${FEATURE_X[k]}</p></a><div class="byline">${meta(14,9)}<div class="av"><img src="${img('author2',60,60)}" alt=""></div></div></div><a href="#" class="ph"><img src="${img('warehouse',900,675)}" alt=""></a></article>`;
+  $('row4').innerHTML=F.slice(1,5).map((a,j)=>`<article><a href="#"><div class="ph"><img loading="lazy" src="${img('row'+j,500,375)}" alt=""></div><span class="cat" style="display:inline-block;margin-bottom:4px">${D.cat[a.c]}</span><h3>${a.t[k]}</h3></a></article>`).join('');
+
+  $('grid').innerHTML=TABS[tab].map(a=>`<a class="item" href="#"><div class="ph"><img loading="lazy" src="${img(a.s,300,225)}" alt=""></div><div><span class="cat">${D.cat[a.c]}</span><h4>${a.f.t[k]}</h4>${meta(a.n,a.h)}</div></a>`).join('');
+  document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',+b.dataset.t===tab));
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{tab=+b.dataset.t;render()}));
+$('langBtn').addEventListener('click',()=>{lang=lang==='dv'?'en':'dv';try{localStorage.setItem('dhirun-lang',lang)}catch(e){}render()});
+render();
+</script>
+</body>
+</html>
